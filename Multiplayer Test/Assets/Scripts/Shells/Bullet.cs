@@ -11,11 +11,18 @@ public class Bullet : MonoBehaviourPun
         _photonView = GetComponent<PhotonView>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collider.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().GetDamage(_damageCount);
+            collider.gameObject.GetComponent<Player>().GetDamage(_damageCount);
+            Debug.Log("Blyyyyaaaaaaaat");
+            //PhotonNetwork.Destroy(gameObject);
         }
+
+        //if (collider)
+        //{
+        //    PhotonNetwork.Destroy(gameObject);
+        //}
     }
 }
