@@ -366,7 +366,6 @@ MonoBehaviour:
   - {fileID: 1518747779}
   _startObjects:
   - {fileID: 6099402450214556004, guid: 96608947c226c6648896466c8c1b59d7, type: 3}
-  - {fileID: 6099402450214556004, guid: 96608947c226c6648896466c8c1b59d7, type: 3}
   _spawnPoints:
   - {fileID: 1893598151}
   - {fileID: 1125702425}
