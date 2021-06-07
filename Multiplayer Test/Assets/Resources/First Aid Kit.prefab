@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 9215856885746022870}
   - component: {fileID: 9215856885746022869}
   - component: {fileID: 1436830333}
-  - component: {fileID: -5538047854859166238}
+  - component: {fileID: -5420891170893810346}
   m_Layer: 0
   m_Name: First Aid Kit
   m_TagString: Untagged
@@ -201,7 +201,7 @@ MonoBehaviour:
   _healCount: 10
   _source: {fileID: 3663499838086002146, guid: a813ab53da85bb84e8316cf2b74f9564, type: 3}
   _takeSound: {fileID: 8300000, guid: fcb8d602c43ba2549820f486c18e2918, type: 3}
---- !u!114 &-5538047854859166238
+--- !u!114 &-5420891170893810346
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,7 +210,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9215856885746022824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82c91f4c60d634048af6fbe0279cebf8, type: 3}
+  m_Script: {fileID: 11500000, guid: 1aa4647e6098b7242a47e5a14cd70e0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _timeToDestroy: 20
