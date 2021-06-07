@@ -86,29 +86,31 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < InventoryList.Count; i++)
         {
-            if (InventoryList[i].ID == 0)
+            for (int j = 0; j < ItemsInHand.Length; j++)
             {
-                Debug.Log(currentItem.ID + " - " + ItemsInHand[i].ID);
-
-                if (currentItem.ActivateObjectInHand)
+                if (InventoryList[i].ID == 0)
                 {
-                    if (currentItem.ID == ItemsInHand[i].ID)
+                    if (currentItem.ActivateObjectInHand)
+                    {
+                        if (currentItem.ID == ItemsInHand[j].ID)
+                        {
+                            InventoryList[i] = currentItem;
+                            ShowIcon();
+                            ItemsInHand[j].HandItem.SetActive(true);
+                            Debug.Log(ItemsInHand[j].HandItem.activeSelf);
+                            PhotonNetwork.Destroy(currentItem.gameObject);
+                            Debug.Log("||||||||||||||||||||||||||||| DESTROYED 1 ||||||||||||||||||||||||||||||||");
+                            return;
+                        }
+                    }
+                    else
                     {
                         InventoryList[i] = currentItem;
-                        ItemsInHand[i].HandItem.SetActive(true);
                         ShowIcon();
-                        Destroy(currentItem.gameObject);
-                        Debug.Log("||||||||||||||||||||||||||||| DESTROYED ||||||||||||||||||||||||||||||||");
-                        break;
+                        PhotonNetwork.Destroy(currentItem.gameObject);
+                        Debug.Log("||||||||||||||||||||||||||||| DESTROYED 2 ||||||||||||||||||||||||||||||||");
+                        return;
                     }
-                }
-                else
-                {
-                    InventoryList[i] = currentItem;
-                    ShowIcon();
-                    Destroy(currentItem.gameObject);
-                    Debug.Log("||||||||||||||||||||||||||||| DESTROYED ||||||||||||||||||||||||||||||||");
-                    break;
                 }
             }
         }
@@ -118,38 +120,46 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < InventoryList.Count; i++)
         {
-            if (InventoryList[i].ID == 0)
+            for (int j = 0; j < ItemsInHand.Length; j++)
             {
-                InventoryList[i] = currentItem;
-
-                if (InventoryList[i].ActivateObjectInHand)
+                if (InventoryList[i].ID == 0)
                 {
-                    if (InventoryList[i].ID == ItemsInHand[i].ID)
+                    if (currentItem.ActivateObjectInHand)
                     {
-                        ItemsInHand[i].HandItem.SetActive(true);
+                        if (currentItem.ID == ItemsInHand[j].ID)
+                        {
+                            InventoryList[i] = currentItem;
+                            ShowIcon();
+                            ItemsInHand[j].HandItem.SetActive(true);
+                            PhotonNetwork.Destroy(currentItem.gameObject);
+                            Debug.Log("||||||||||||||||||||||||||||| DESTROYED ||||||||||||||||||||||||||||||||");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        InventoryList[i] = currentItem;
+                        ShowIcon();
+                        PhotonNetwork.Destroy(currentItem.gameObject);
+                        Debug.Log("||||||||||||||||||||||||||||| DESTROYED ||||||||||||||||||||||||||||||||");
+                        return;
                     }
                 }
-
-                ShowIcon();
-                Destroy(gameObject.gameObject);
-                Debug.Log("||||||||||||||||||||||||||||| DESTROYED ||||||||||||||||||||||||||||||||");
-                break;
-            }
-            else if (InventoryList[i].ID == currentItem.ID)
-            {
-                InventoryList[i] = currentItem;
-                InventoryList[i].Quantity += currentItem.Quantity;
-                ShowIcon();
-                Destroy(currentItem.gameObject);
-                Debug.Log("||||||||||||||||||||||||||||| DESTROYED ||||||||||||||||||||||||||||||||");
-                break;
+                else if (InventoryList[i].ID == currentItem.ID)
+                {
+                    InventoryList[i].Quantity += currentItem.Quantity;
+                    ShowIcon();
+                    PhotonNetwork.Destroy(currentItem.gameObject);
+                    Debug.Log("||||||||||||||||||||||||||||| DESTROYED ||||||||||||||||||||||||||||||||");
+                    return;
+                }
             }
         }
     }
 
     private void ShowIcon()
     {
-        for (int i = 0; i < _cellContainer.childCount; i++)
+        for (int i = 0; i < InventoryList.Count; i++)
         {
             Transform Cell = _cellContainer.GetChild(i);
             Image Icon = Cell.GetChild(0).GetComponent<Image>();
@@ -167,7 +177,7 @@ public class Inventory : MonoBehaviour
                 else
                 {
                     TextQuantity.text = InventoryList[i].Quantity.ToString();
-                    TextQuantity.enabled = transform;
+                    TextQuantity.enabled = true;
                 }    
             }
             else

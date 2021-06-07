@@ -487,7 +487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcaafaddc263b049b65ad089e4149f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _menuSceneName: Menu
   _localPlayer: {fileID: 904913078}
 --- !u!114 &904913078
 MonoBehaviour:
@@ -1103,7 +1102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5371774776106490388, guid: 326d2e869e19a2c4cb8df3ba7df9538e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5371774776106490389, guid: 326d2e869e19a2c4cb8df3ba7df9538e, type: 3}
       propertyPath: m_RootOrder

@@ -3,7 +3,7 @@ using Photon.Pun;
 
 public class Player : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private string _menuSceneName = "Menu";
+    //[SerializeField] private string _menuSceneName = "Menu";
     [SerializeField] private LocalPlayer _localPlayer;
     private PhotonView _photonView;
 

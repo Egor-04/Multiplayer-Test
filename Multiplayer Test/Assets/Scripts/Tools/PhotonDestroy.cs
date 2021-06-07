@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class PhotonDestroy : MonoBehaviour
 {
-    [SerializeField] float _timeToDestroy = 20f;
+    [SerializeField] private float _timeToDestroy = 20f;
 
     private float _currentTime;
+
+    private void Start()
+    {
+        _currentTime += _timeToDestroy;
+    }
 
     private void Update()
     {
