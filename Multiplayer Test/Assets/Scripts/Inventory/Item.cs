@@ -26,5 +26,10 @@ public class Item : MonoBehaviour
     private void Awake()
     {
         _photonView = GetComponent<PhotonView>();
+
+        if (!_photonView.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 }

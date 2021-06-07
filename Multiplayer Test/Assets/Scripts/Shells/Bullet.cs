@@ -17,10 +17,5 @@ public class Bullet : MonoBehaviourPun
         {
             collision.gameObject.GetComponent<Player>().GetDamage(_damageCount);
         }
-
-        if (collision.collider)
-        {
-            PhotonNetwork.Destroy(gameObject);
-        }
     }
 }
