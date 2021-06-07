@@ -19,7 +19,6 @@ public class PhotonDestroy : MonoBehaviour
         if (_currentTime <= 0f)
         {
             _currentTime = 0f;
-            Destroy(gameObject);
             PhotonNetwork.Destroy(gameObject);
         }
     }
