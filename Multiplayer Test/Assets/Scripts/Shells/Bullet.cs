@@ -13,10 +13,9 @@ public class Bullet : MonoBehaviourPun
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.collider.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Player>().GetDamage(_damageCount);
-            Debug.Log("Blyyyyaaaaaaaat");
+            collision.collider.gameObject.GetComponent<Player>().GetDamage(_damageCount);
             Destroy(gameObject);
             PhotonNetwork.Destroy(gameObject);
         }

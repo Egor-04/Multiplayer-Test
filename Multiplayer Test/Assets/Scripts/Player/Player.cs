@@ -47,6 +47,7 @@ public class Player : MonoBehaviourPunCallbacks
         }
     }
 
+    [PunRPC]
     public void GetHeal(float healCount)
     {
         if (_photonView.IsMine)
