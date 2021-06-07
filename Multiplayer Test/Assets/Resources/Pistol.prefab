@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireType: 0
-  _speed: 100000
+  _speed: 150000
   _timeShotInterval: 0.3
   _bulletPrefab: {fileID: 5755870474676712143, guid: 26481e53366cd7844adf207563975f55, type: 3}
   _muzzleFlash: {fileID: 8922512824233882571, guid: 2b97509f0b248774d8a1422264e8ff24, type: 3}

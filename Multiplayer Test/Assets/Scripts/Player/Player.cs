@@ -3,8 +3,9 @@ using Photon.Pun;
 
 public class Player : MonoBehaviourPunCallbacks
 {
-    //[SerializeField] private string _menuSceneName = "Menu";
+    [SerializeField] private string _menuSceneName = "Menu";
     [SerializeField] private LocalPlayer _localPlayer;
+    [SerializeField] private PlayerSpawn _playerSpawn;
     private PhotonView _photonView;
 
     private void Awake()
@@ -38,6 +39,7 @@ public class Player : MonoBehaviourPunCallbacks
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
 
+                _playerSpawn.CreatePlayer();
                 PhotonNetwork.Destroy(_localPlayer.gameObject);
             }
             else if (_localPlayer.PlayerHP >= 100f)

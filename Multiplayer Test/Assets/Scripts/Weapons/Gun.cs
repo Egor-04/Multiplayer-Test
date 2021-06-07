@@ -38,10 +38,10 @@ public class Gun : MonoBehaviourPun
     {
         _photonView = GetComponent<PhotonView>();
 
-        if (!_photonView.IsMine)
-        {
-            PhotonNetwork.Destroy(gameObject);
-        }
+        //if (!_photonView.IsMine)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     private void Update()
