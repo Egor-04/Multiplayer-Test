@@ -29,7 +29,7 @@ public class Item : MonoBehaviour
 
         if (!_photonView.IsMine)
         {
-            PhotonNetwork.Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 }
