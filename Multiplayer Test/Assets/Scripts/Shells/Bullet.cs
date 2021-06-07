@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviourPun
 
         if (collision.collider)
         {
-            Destroy(gameObject);
+            PhotonNetwork.Destroy(gameObject);
         }
     }
 }
