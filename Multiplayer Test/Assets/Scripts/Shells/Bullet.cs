@@ -16,8 +16,6 @@ public class Bullet : MonoBehaviourPun
         if (collision.collider.gameObject.CompareTag("Player"))
         {
             collision.collider.gameObject.GetComponent<Player>().GetDamage(_damageCount);
-            Destroy(gameObject);
-            PhotonNetwork.Destroy(gameObject);
         }
 
         if (collision.collider)
