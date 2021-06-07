@@ -20,7 +20,7 @@ public class FirstAid : MonoBehaviour
                 GameObject instantiatedObject = PhotonNetwork.Instantiate(_source.name, collider.transform.position, Quaternion.identity);
                 AudioSource instantiatedSource = instantiatedObject.GetComponent<AudioSource>();
                 instantiatedSource.PlayOneShot(_takeSound);
-                PhotonNetwork.Destroy(gameObject);
+                Destroy(gameObject);
             }
         }  
     }
