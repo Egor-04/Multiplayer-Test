@@ -1088,6 +1088,10 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -684315845064541129, guid: 326d2e869e19a2c4cb8df3ba7df9538e, type: 3}
+      propertyPath: _timeShotInterval
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2055052874, guid: 326d2e869e19a2c4cb8df3ba7df9538e, type: 3}
       propertyPath: sceneViewId
       value: 0

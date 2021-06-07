@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+enum ShootingType {SingleFire, AutomaticFire}
 public class Gun : MonoBehaviourPun
 {
+    [Header("Fire Type")]
+    [SerializeField] private ShootingType _fireType;
+
     [Header("Speed")]
     [SerializeField] private float _speed;
 
@@ -45,6 +49,26 @@ public class Gun : MonoBehaviourPun
         _currentTimeShotInterval -= Time.deltaTime;
         CheckInterval();
 
+        if (_fireType == ShootingType.SingleFire)
+        {
+            SingleFire();
+        }
+        else if (_fireType == ShootingType.AutomaticFire)
+        {
+            AutomaticShoot();
+        }
+    }
+
+    private void CheckInterval()
+    {
+        if (_currentTimeShotInterval <= 0f)
+        {
+            _currentTimeShotInterval = 0f;
+        }
+    }
+
+    private void SingleFire()
+    {
         if (Input.GetKeyDown(_fire) && _photonView.IsMine)
         {
             if (_currentTimeShotInterval <= 0f)
@@ -54,11 +78,14 @@ public class Gun : MonoBehaviourPun
         }
     }
 
-    private void CheckInterval()
+    private void AutomaticShoot()
     {
-        if (_currentTimeShotInterval <= 0f)
+        if (Input.GetKey(_fire) && _photonView.IsMine)
         {
-            _currentTimeShotInterval = 0f;
+            if (_currentTimeShotInterval <= 0f)
+            {
+                RpcShot();
+            }
         }
     }
 
