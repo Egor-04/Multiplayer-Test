@@ -14,8 +14,7 @@ public class MenuManager : MonoBehaviourPunCallbacks
     [SerializeField] private Slider _maxPlayersCount;
 
     [Header("Room List")]
-    [SerializeField] private Transform _content;
-    [SerializeField] private Button _buttonPrefab;
+    [SerializeField] private RoomList _roomList;
 
     public void CreateRoom()
     {
@@ -37,5 +36,10 @@ public class MenuManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         PhotonNetwork.LoadLevel(NameOfGameScene);
+    }
+
+    public override void OnLeftRoom()
+    {
+        ;
     }
 }

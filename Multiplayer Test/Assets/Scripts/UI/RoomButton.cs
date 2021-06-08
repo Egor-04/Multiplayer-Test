@@ -14,6 +14,7 @@ public class RoomButton : MonoBehaviourPunCallbacks
     public void EnterInThisRoom()
     {
         PhotonNetwork.JoinRoom(RoomName.text);
+        Debug.Log("I Joined to:" + RoomName.text);
     }
 
     public override void OnJoinedRoom()
@@ -23,7 +24,7 @@ public class RoomButton : MonoBehaviourPunCallbacks
 
     public void SetRoomInfo(RoomInfo roomInfo)
     {
-        RoomName.text = "Room Name: " + roomInfo.Name;
+        RoomName.text = roomInfo.Name;
         PlayerCount.text = "Current Player Count: " + roomInfo.PlayerCount.ToString();
         MaxPlayers.text = "Max Players Count: " + roomInfo.MaxPlayers.ToString();
         IsOpen.isOn = roomInfo.IsOpen;

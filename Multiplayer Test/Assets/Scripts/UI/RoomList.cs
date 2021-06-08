@@ -6,34 +6,24 @@ using Photon.Pun;
 
 public class RoomList : MonoBehaviourPunCallbacks
 {
+    [Header("For Room List")]
     [SerializeField] private Transform _content;
     [SerializeField] private RoomButton _roomButtonScript;
 
-    [SerializeField] private List<RoomInfo> _roomInfo;
-
-    public override void OnLeftRoom()
+    public override void OnRoomListUpdate(List<RoomInfo> roomInfoList)
     {
-        Debug.Log("Player left");
-        for (int i = 0; i < _roomInfo.Count; i++)
-        {
-            if (_roomInfo[i].Name == _roomButtonScript.RoomName.text)
-            {
-                Destroy(_roomButtonScript.gameObject);
-            }
-        }
-    }
-
-    public override void OnRoomListUpdate(List<RoomInfo> roomList)
-    {
-        _roomInfo = roomList;
-
-        for (int i = 0; i < roomList.Count; i++)
+        for (int i = 0; i < roomInfoList.Count; i++)
         {
             RoomButton roomButton = Instantiate(_roomButtonScript, _content);
 
             if (roomButton != null)
             {
-                roomButton.SetRoomInfo(roomList[i]);
+                roomButton.SetRoomInfo(roomInfoList[i]);
+            }
+
+            if (roomInfoList[i].RemovedFromList)
+            {
+                Destroy(roomButton.gameObject);
             }
         }
     }
