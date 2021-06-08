@@ -15,12 +15,6 @@ public class RoomButton : MonoBehaviourPunCallbacks
     public void EnterInThisRoom()
     {
         PhotonNetwork.JoinRoom(RoomName.text);
-        Debug.Log("I Joined to:" + RoomName.text);
-    }
-
-    public override void OnJoinedRoom()
-    {
-        PhotonNetwork.LoadLevel("Game");
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomListInfo)
