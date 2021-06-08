@@ -7,7 +7,6 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     [SerializeField] private string _sceneName = "Menu";
     [SerializeField] private Text _textVersion;
-    [SerializeField] private RoomButton _roomButton; 
 
     private void Awake()
     {
