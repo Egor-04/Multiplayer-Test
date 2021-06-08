@@ -7,6 +7,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     [SerializeField] private string _sceneName = "Menu";
     [SerializeField] private Text _textVersion;
+    [SerializeField] private RoomButton _roomButton; 
 
     private void Awake()
     {
@@ -24,6 +25,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         Debug.Log(PhotonNetwork.IsConnected);
+        PhotonNetwork.JoinLobby();
         SceneManager.LoadScene(_sceneName);
     }
 }

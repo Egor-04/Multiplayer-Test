@@ -22,12 +22,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = (byte)_maxPlayersCount.value;
         PhotonNetwork.CreateRoom(_inputNameToCreate.text, roomOptions);
-
-        //Button buttonPrefab = Instantiate(_buttonPrefab, _content);
-        //_content.SetParent(buttonPrefab.transform);
-
-        //Text textRoomName = buttonPrefab.transform.GetChild(0).GetComponent<Text>();
-        //textRoomName.text = _inputNameToCreate.text;
     }
 
     public void JoinRoom()

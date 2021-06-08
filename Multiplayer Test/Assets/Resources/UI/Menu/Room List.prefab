@@ -179,8 +179,8 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 10.9
+  m_ChildAlignment: 1
+  m_Spacing: -702.17
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -508,7 +508,7 @@ GameObject:
   - component: {fileID: 7022236091125670750}
   - component: {fileID: 7022236091125670736}
   - component: {fileID: 7022236091125670737}
-  - component: {fileID: 8636012336813140015}
+  - component: {fileID: 3878085578297485040}
   m_Layer: 5
   m_Name: Room List
   m_TagString: Untagged
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 0.3
---- !u!114 &8636012336813140015
+--- !u!114 &3878085578297485040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -583,9 +583,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7022236091125670751}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3165f606d7a1f7543836f9ad206e95cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e216e3b3f5b67941982c624b94d9765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _content: {fileID: 7022236089191162386}
-  _buttonPrefab: {fileID: 6534595545514844495, guid: 540f85e5496027d43a7566762a87507b, type: 3}
-  _roomList: {fileID: 3087500254744858771, guid: 540f85e5496027d43a7566762a87507b, type: 3}
+  _roomButtonScript: {fileID: 1176109354053775279, guid: 540f85e5496027d43a7566762a87507b, type: 3}
