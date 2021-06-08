@@ -2,6 +2,7 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using UnityEngine;
 using Photon.Pun;
+using System.Collections.Generic;
 
 public class RoomButton : MonoBehaviourPunCallbacks
 {
@@ -22,11 +23,25 @@ public class RoomButton : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("Game");
     }
 
+    public override void OnRoomListUpdate(List<RoomInfo> roomListInfo)
+    {
+        for (int i = 0; i < roomListInfo.Count; i++)
+        {
+            if (roomListInfo[i].Name == RoomName.text)
+            {
+                if (roomListInfo[i].PlayerCount == 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
+        }
+    }
+
     public void SetRoomInfo(RoomInfo roomInfo)
     {
         RoomName.text = roomInfo.Name;
-        PlayerCount.text = "Current Player Count: " + roomInfo.PlayerCount.ToString();
-        MaxPlayers.text = "Max Players Count: " + roomInfo.MaxPlayers.ToString();
+        PlayerCount.text = roomInfo.PlayerCount.ToString();
+        MaxPlayers.text = roomInfo.MaxPlayers.ToString();
         IsOpen.isOn = roomInfo.IsOpen;
     }
 }

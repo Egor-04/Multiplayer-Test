@@ -37,9 +37,4 @@ public class MenuManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.LoadLevel(NameOfGameScene);
     }
-
-    public override void OnLeftRoom()
-    {
-        ;
-    }
 }

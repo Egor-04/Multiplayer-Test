@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Photon.Realtime;
 using UnityEngine;
 using Photon.Pun;
+using System;
 
 public class RoomList : MonoBehaviourPunCallbacks
 {
@@ -14,16 +15,14 @@ public class RoomList : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < roomInfoList.Count; i++)
         {
-            RoomButton roomButton = Instantiate(_roomButtonScript, _content);
-
-            if (roomButton != null)
+            if (roomInfoList[i].PlayerCount > 0)
             {
-                roomButton.SetRoomInfo(roomInfoList[i]);
-            }
-
-            if (roomInfoList[i].RemovedFromList)
-            {
-                Destroy(roomButton.gameObject);
+                RoomButton roomButton = Instantiate(_roomButtonScript, _content);
+                
+                if (roomButton != null && roomInfoList[i].PlayerCount >= 1)
+                {
+                    roomButton.SetRoomInfo(roomInfoList[i]);
+                }
             }
         }
     }
