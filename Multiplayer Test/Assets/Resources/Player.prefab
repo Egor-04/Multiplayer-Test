@@ -250,6 +250,36 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!1 &4506323650401967878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7135406430066689400}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7135406430066689400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506323650401967878}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.125, z: 1.3439999}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7758674166685240583}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7758674166685240578
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 972395919}
+  - {fileID: 7135406430066689400}
   m_Father: {fileID: 7758674167735946382}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -353,6 +384,7 @@ GameObject:
   - component: {fileID: 7758674167735946381}
   - component: {fileID: -7896271770339794280}
   - component: {fileID: -4271941711856605858}
+  - component: {fileID: 5340385191351787697}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -473,7 +505,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!114 &-4437410540636299810
 MonoBehaviour:
@@ -605,6 +637,25 @@ MonoBehaviour:
   - ID: 1
     HandItem: {fileID: 4463780923526887767}
   InventoryList: []
+--- !u!114 &5340385191351787697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7758674167735946378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c91ae248b08753429f752c94449d305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _throwForce: 1000
+  _throwInterval: 2
+  _throwButton: 103
+  _sourcePrefab: {fileID: 3663499838086002146, guid: a813ab53da85bb84e8316cf2b74f9564, type: 3}
+  _throwSound: {fileID: 8300000, guid: 708737a5b03effe4a8838f222ea6bd8d, type: 3}
+  _spawnPoint: {fileID: 7135406430066689400}
+  _grenadePrefab: {fileID: 1963285360026721251, guid: 64d663f03615b3e439bc6f488c9b219a, type: 3}
 --- !u!1001 &556544012008778126
 PrefabInstance:
   m_ObjectHideFlags: 0
