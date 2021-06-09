@@ -41,6 +41,7 @@ public class ThrowGrenade : MonoBehaviour
             GameObject sourceObject = PhotonNetwork.Instantiate(_sourcePrefab.name, _spawnPoint.position, Quaternion.identity);
             AudioSource source = sourceObject.GetComponent<AudioSource>();
             source.PlayOneShot(_throwSound);
+
             _currentThrowInterval += _throwInterval;
         }
     }
