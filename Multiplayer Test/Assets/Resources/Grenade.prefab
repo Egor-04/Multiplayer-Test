@@ -126,7 +126,7 @@ MonoBehaviour:
   _timerToDestroy: 0.2
   _sourcePrefab: {fileID: 3663499838086002146, guid: a813ab53da85bb84e8316cf2b74f9564, type: 3}
   _explosionSound: {fileID: 8300000, guid: 4015d0a71a6ed01419d20ae6902637df, type: 3}
-  _explosionEffect: {fileID: 8922512824233882571, guid: 2b97509f0b248774d8a1422264e8ff24, type: 3}
+  _explosionEffect: {fileID: 7175699556828471145, guid: b5eedd1fa75d9ac4e99e2d8fe35b2eaf, type: 3}
   _r: 5
   _g: 0
   _b: 0

@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviourPun
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<Player>().GetDamage(_damageCount);
-
         }
 
         if (collision.collider)

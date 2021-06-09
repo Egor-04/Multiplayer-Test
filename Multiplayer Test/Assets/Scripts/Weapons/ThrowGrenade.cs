@@ -35,12 +35,12 @@ public class ThrowGrenade : MonoBehaviour
     {
         if (Input.GetKeyDown(_throwButton))
         {
+            GameObject grenadeObject = PhotonNetwork.Instantiate(_grenadePrefab.name, _spawnPoint.position, _grenadePrefab.transform.rotation);
+            grenadeObject.GetComponent<Rigidbody>().AddForce(transform.forward * _throwForce);
+
             GameObject sourceObject = PhotonNetwork.Instantiate(_sourcePrefab.name, _spawnPoint.position, Quaternion.identity);
             AudioSource source = sourceObject.GetComponent<AudioSource>();
             source.PlayOneShot(_throwSound);
-
-            GameObject grenadeObject = PhotonNetwork.Instantiate(_grenadePrefab.name, _spawnPoint.position, Quaternion.identity);
-            grenadeObject.GetComponent<Rigidbody>().AddForce(transform.forward * _throwForce);
             _currentThrowInterval += _throwInterval;
         }
     }
