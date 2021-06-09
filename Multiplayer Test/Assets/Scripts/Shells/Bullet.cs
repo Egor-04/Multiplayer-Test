@@ -7,9 +7,10 @@ public class Bullet : MonoBehaviourPun
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.collider.gameObject.GetComponent<Player>().GetDamage(_damageCount);
+            collision.gameObject.GetComponent<Player>().GetDamage(_damageCount);
+
         }
 
         if (collision.collider)

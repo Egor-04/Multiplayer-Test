@@ -57,8 +57,11 @@ public class Grenade : MonoBehaviour
 
         for (int i = 0; i < colliders.Length; i++)
         {
-            Player player = colliders[i].GetComponent<Player>();
-            player.GetDamage(_damageCount);
+            if (colliders[i].gameObject.GetComponent<Player>())
+            {
+                Player player = colliders[i].GetComponent<Player>();
+                player.GetDamage(_damageCount);
+            }
 
             Rigidbody rigidbody = colliders[i].GetComponent<Rigidbody>();
 
