@@ -1,7 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 
-public class ThrowGrenade : MonoBehaviour
+public class ThrowGrenade : MonoBehaviourPun
 {
     [Header("Values")]
     [SerializeField] private float _throwForce = 1000f;
@@ -18,7 +18,13 @@ public class ThrowGrenade : MonoBehaviour
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private GameObject _grenadePrefab;
 
+    private PhotonView _photonView;
     private float _currentThrowInterval;
+
+    private void Start()
+    {
+        _photonView = GetComponent<PhotonView>();
+    }
 
     private void Update()
     {
@@ -33,7 +39,7 @@ public class ThrowGrenade : MonoBehaviour
 
     private void Throw()
     {
-        if (Input.GetKeyDown(_throwButton))
+        if (Input.GetKeyDown(_throwButton) && _photonView.IsMine)
         {
             GameObject grenadeObject = PhotonNetwork.Instantiate(_grenadePrefab.name, _spawnPoint.position, _grenadePrefab.transform.rotation);
             grenadeObject.GetComponent<Rigidbody>().AddForce(transform.forward * _throwForce);

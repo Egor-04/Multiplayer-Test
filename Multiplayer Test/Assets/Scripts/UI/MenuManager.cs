@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviourPunCallbacks
     [SerializeField] private InputField _inputNameToCreate;
     [SerializeField] private InputField _inputNameToAvailableRoom;
     [SerializeField] private Slider _maxPlayersCount;
+    [SerializeField] private Toggle _isOpen;
+    [SerializeField] private Toggle _isVisible;
 
     [Header("Room List")]
     [SerializeField] private RoomList _roomList;
@@ -20,6 +22,8 @@ public class MenuManager : MonoBehaviourPunCallbacks
     {
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = (byte)_maxPlayersCount.value;
+        roomOptions.IsOpen = _isOpen.isOn;
+        roomOptions.IsVisible = _isVisible.isOn;
         PhotonNetwork.CreateRoom(_inputNameToCreate.text, roomOptions);
     }
 

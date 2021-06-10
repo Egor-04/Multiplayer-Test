@@ -31,7 +31,6 @@ public class Spawner : MonoBehaviour
     {
         _currentTime -= Time.deltaTime;
         CheckTime();
-
         SpawnAllTime();
     }
 
